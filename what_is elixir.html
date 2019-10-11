@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>What is Elixir</title>
+
+  <meta name="author" content="Anayeli Malvaez">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h1>What is Elixir?</h1>
+        <img style="max-height: 100px" src="https://img.stackshare.io/service/1974/drop.png">
+      </section>
+
+      <section>
+        <blockquote>
+          &ldquo;Elixir is a dynamic, functional language designed for building scalable and maintainable
+          applications.&rdquo;
+          </br>
+          <span class="text-right">José Valim</span>
+        </blockquote>
+        <aside class="notes">
+          In the words of its creator, we can define as a dynamic, functional language designed for building
+          scalable and maintainable applications.
+          When we talk about Elixir as functional programming you shouldn't be worried maybe you are thinking Do I need
+          to learn advanced mathematics? Do I need to forget about everything that I already know? Will be a huge
+          difference comparing with other programming languages?
+          To be honest, I would say at the beginning I was scared too but in real life, I've used elixir for production
+          projects and notice that the answer is not you don't need actually you will use everything that you already
+          know about programming plus a few things that we will learn in this workshop.
+        </aside>
+      </section>
+
+      <section>
+        <section>
+          <h3>Things that makes Elixir intersting</h3>
+          <br>
+          <p class="fragment">Immutability</p>
+          <p class="fragment">Pattern matching</p>
+
+          <aside class="notes">
+            Immutable means that you can never reassign or edit data structure.
+            Instead, you’d have to return new values whenever a change has to happen in a data structure. This means
+            that we will have full
+            transparency in our code as the only things that matter in a function is the input and the
+            output - making unit testing and debugging so much easier.
+            In Elixir you can pattern match on almost everything, almost everywhere. If we take
+            a look into Wikipedia's definition
+          </aside>
+        </section>
+        <section>
+          <blockquote>
+            &ldquo;In computer science, pattern matching is the act of checking a given sequence of tokens
+            for the presence of the constituents of some pattern. In contrast to pattern recognition, the
+            match usually has to be exact: "either it will or will not be a match."&rdquo;
+            <span class="text-right">wikipedia</span>
+          </blockquote>
+
+        </section>
+        <section>
+          <pre>
+            <code class="hljs" data-trim data-line-numbers="4,8-11">
+              
+[1,2] = [1,2]
+
+[1,2] = [2,1]
+
+["a","b"] = ["b", "a"]
+
+%{id: 1, name: "ana"} = %{id: 1, name: "ana"}
+
+%{id: 1, name: "ana"} = %{id: 1, name: "Ana"}
+
+%{id: 1, name: ana} = %{id: 1, name: "ana"}
+          </code>
+        </pre>
+          <p style="height: 20px; font-size: xx-large; " class="fragment">✅</p>
+          <p style="height: 20px; font-size: xx-large; " class="fragment">❌</p>
+          <p style="height: 20px; font-size: xx-large; " class="fragment">❌</p>
+          <p style="height: 20px; font-size: xx-large; " class="fragment">✅</p>
+          <p style="height: 20px; font-size: xx-large; " class="fragment">❌</p>
+          <p style="height: 20px; font-size: xx-large; " class="fragment">✅</p>
+          <aside class="notes">
+            this is one of the most things that I like about Elixir. In a few minutes we will do a small demo to see how
+            it works just keep in mind this fancy term is acceptable in an exact match or replica of the values that we
+            are comparing so we have only tow ways YES/NOT
+          </aside>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Things that makes Elixir intersting</h3>
+          <br>
+          <p>Immutability</p>
+          <p>Pattern matching</p>
+          <p class="fragment">Pipeline operator |></p>
+          <p class="fragment">Superb tooling</p>
+
+
+          <aside class="notes">
+            For now, I don't want to dive deeper in the use the pipeline, just keep in mind this concept I think is
+            better to explain in practice
+            Also, elixir has a bunch of tools that make us life easier like
+          </aside>
+        </section>
+        <section>
+          <ul>
+            <li>mix</li>
+            <li>iex</li>
+            <li>hex</li>
+            <li>ExUnit</li>
+            <li>Erlang ecosystem</li>
+          </ul>
+          <aside class="notes">
+            mix - A modern build tool
+            iex - Elixir's interactive shell.
+            hex - A package manager
+            ExUnit - A test framework that runs your test suite
+            As elixir is a language build in the top of erlang you have interoperability with the Erlang ecosystem
+          </aside>
+        </section>
+        <section>
+          <img src="https://pbs.twimg.com/media/DGGHdqtXYAA_Ohk.png">
+          <aside class="notes">
+            And probably you are asking Erlang what is this? Don't be worried we are not going deep in this topic.
+            A briefly summary erlang is also a functional programming language developed at Ericsson by Joe Armstrong,
+            Robert Virding, and Mike Williams in 1986
+          </aside>
+        </section>
+        <section>
+          <img src="https://pbs.twimg.com/media/CF14Q1tWIAAazcE.png">
+          <aside class="notes">
+            Some of them are active in the community like conferences or even meetups. Unfortunately, Joe passed away
+            this
+            year so It's was a huge loss for the community, he always was at the meetups inspiring people
+            It makes me sad because I could meet him he remained as inspiration to learn more about programing in
+            general.
+            So yeah there is a wild world outside but we are here to help and the most important is that you found
+            elixir as
+            something that you love to work on or maybe you figure out that you don't like why not?
+          </aside>
+        </section>
+      </section>
+
+      <section>
+        <section>
+            <h3>Let's get down to work</h3>
+            <aside class="notes">
+              Alright!
+              Everyone open your terminal let's start typing iex, you will see the elixir interactive shell, which is a
+              useful
+              tool for exploring elixir
+              for instance, let's say we want to sum to integers like 1 + 2, also elixir has floats for example lets divide
+              7
+              / 2.
+    
+              You also have useful functions, for example, the last operation that we did we can call div(7,2)
+              if you need help or more information about using a function you can call helper function h(div)
+    
+              Ok
+              What else we have? well we have Strings
+    
+              we have atoms, Atoms are constants that are used to name things. In a way, they are just like strings the
+              difference is in the representation.
+              we use colon like :my_first_atom
+    
+              Also, we have booleans true false
+    
+              Tuples are a collection of values like {x,y,z} usually they are small two or three values like {:ok,
+              "created"}
+              or {:error, "message"} tuples are used to pass flagged values
+    
+              We also have a list I would be cleary in this in elixir list are not arrays like in other languages yep it can
+              be
+              tricky but let me go back to the presentation
+              I took borrow these images form Dave Thomas curse which by the way is one of the best online curses.
+    
+              Maps are a collection of key => value maybe you know this as dictionary or hashes
+    
+            </aside>
+        </section>
+        <section>
+            <img src="assets/array.png" alt="">
+          </section>
+
+          <section>
+              <img src="assets/list.png" alt="">
+          </section>
+      </section>
+    </div>
+
+  </div>
+
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/highlight/highlight.js', async: true },
+        { src: 'plugin/search/search.js', async: true },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+
+  </script>
+
+</body>
+
+</html>
